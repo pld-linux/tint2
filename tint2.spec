@@ -13,6 +13,7 @@ URL:		http://code.google.com/p/tint2/
 BuildRequires:	cairo-devel
 BuildRequires:	glib2-devel
 BuildRequires:	imlib2-devel
+BuildRequires:	libpng-devel
 BuildRequires:	pango-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXinerama-devel
