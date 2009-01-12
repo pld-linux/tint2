@@ -1,0 +1,22 @@
+diff -burNp tint/src/Makefile tint-new/src/Makefile
+--- tint/src/Makefile	2008-07-19 15:43:41.000000000 +0200
++++ tint-new/src/Makefile	2009-01-12 10:20:21.504686052 +0100
+@@ -1,5 +1,5 @@
+ FLAGS=-Wall -g `pkg-config --cflags --libs cairo pangocairo x11 xinerama imlib2 glib-2.0`
+-PROGNAME=tint
++PROGNAME=tint2
+ FILES=tint.c server.c window.c task.c launcher.c visual.c config.c
+ 
+ ifndef DESTDIR
+@@ -22,9 +22,9 @@ $(PROGNAME): $(FILES)
+ 
+ install:
+ 	mkdir -p $(BINDIR)
+-	mkdir -p $(XDG_CONFIG_DIR)/tint
++	mkdir -p $(XDG_CONFIG_DIR)/tint2
+ 	install $(PROGNAME) $(BINDIR)
+-	cp -f ../tintrc1 $(XDG_CONFIG_DIR)/tint/tintrc
++	cp -f ../tintrc1 $(XDG_CONFIG_DIR)/tint2/tintrc
+ 
+ uninstall:
+ 	rm -f $(BINDIR)/$(PROGNAME)
