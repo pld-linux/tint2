@@ -31,10 +31,13 @@ okien. Jego kod oparty jest na ttm http://code.google.com/p/ttm/
 
 %prep
 %setup -q -n %{name}-%{_beta}
+rm src/tint2
 
 %build
 cd src
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} %{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
