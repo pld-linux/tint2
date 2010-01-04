@@ -1,12 +1,16 @@
+#
+# Conditional build:
+%bcond_without  tintwizard	# build without tests
+#
 Summary:	tint2 is a simple panel/taskbar intentionally made for openbox3
 Summary(pl.UTF-8):	tint2 jest prostym panelem oryginalnie zaprojektowanym dla openbox3
 Name:		tint2
-Version:	0.7.1
+Version:	0.8
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://tint2.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	b7a740550a82093d4d0d8143499f3f13
+# Source0-md5:	866bc529cb7d0884e976f8fc9aef0eea
 Source1:	http://tint2.googlecode.com/files/%{name}-0.7.pdf
 # Source1-md5:	25980bd22fabc6a66660173fa639957b
 URL:		http://code.google.com/p/tint2/
@@ -20,6 +24,10 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXinerama-devel
+%if %{with tintwizard}
+Requires:	python
+Requires:	python-pygtk-gtk
+%endif
 Suggests:	openbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,12 +70,14 @@ tint2 - przykładowe konfiguracje.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_bindir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{?with_tintwizard:cp src/tint2conf/tintwizard.py $RPM_BUILD_ROOT%{_bindir}}
 cp %{SOURCE1} doc
-install tintrc0* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version} 
+install sample/*.tint2rc $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version} 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README doc/tint2-0.7.pdf
 %attr(755,root,root) %{_bindir}/tint2
+%{?with_tintwizard:%attr(755,root,root) %{_bindir}/tintwizard.py}
 %dir %{_sysconfdir}/xdg/tint2
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/xdg/tint2/tint2rc
 %{_mandir}/man1/tint2.1.*
