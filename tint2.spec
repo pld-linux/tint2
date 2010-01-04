@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without  tintwizard	# build without tests
+%bcond_without  tintwizard	# build without tintwizard
 #
 Summary:	tint2 is a simple panel/taskbar intentionally made for openbox3
 Summary(pl.UTF-8):	tint2 jest prostym panelem oryginalnie zaprojektowanym dla openbox3
