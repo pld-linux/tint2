@@ -24,6 +24,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-pythonprov
 BuildRequires:	xorg-lib-libXinerama-devel
 %if %{with tintwizard}
 Requires:	python
@@ -43,10 +44,10 @@ openbox3, ale powinien również współpracować z innymi menadżerami
 okien. Jego kod oparty jest na ttm http://code.google.com/p/ttm/
 
 %package examples
-Summary:        tint2 - example configurations
-Summary(pl.UTF-8):      tint2 - przykładowe konfiguracje
-Group:          Documentation
-Requires:       %{name} = %{version}-%{release}
+Summary:	tint2 - example configurations
+Summary(pl.UTF-8):	tint2 - przykładowe konfiguracje
+Group:		Documentation
+Requires:	%{name} = %{version}-%{release}
 
 %description examples
 tint2 - example configurations.
@@ -55,7 +56,7 @@ tint2 - example configurations.
 tint2 - przykładowe konfiguracje.
 
 %prep
-%setup -q 
+%setup -q
 %patch0 -p1
 
 %build
@@ -79,7 +80,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{?with_tintwizard:cp src/tint2conf/tintwizard.py $RPM_BUILD_ROOT%{_bindir}}
 cp %{SOURCE1} doc
-install sample/*.tint2rc $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version} 
+install sample/*.tint2rc $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
