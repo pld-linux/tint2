@@ -1,0 +1,30 @@
+diff -burNp tint2-0.8/src/tint2conf/tintwizard.py tint2-0.8-dud/src/tint2conf/tintwizard.py
+--- tint2-0.8/src/tint2conf/tintwizard.py	2009-12-12 15:44:01.000000000 +0100
++++ tint2-0.8-dud/src/tint2conf/tintwizard.py	2010-01-05 21:01:46.540356564 +0100
+@@ -2141,10 +2141,7 @@ class TintWizardGUI(gtk.Window):
+ 			# don't need tintwizard.conf
+ 			return
+ 
+-		pathName = os.path.dirname(sys.argv[0])
+-
+-		if pathName != "":
+-			pathName += "/"
++		pathName = os.path.expanduser("~/.config/")
+ 
+ 		if not os.path.exists(pathName + "tintwizard.conf"):
+ 			self.writeConf()
+@@ -2312,12 +2309,9 @@ class TintWizardGUI(gtk.Window):
+ 
+ 		confStr += "#End\n"
+ 
+-		pathName = os.path.dirname(sys.argv[0])
++		pathName = os.path.expanduser("~/.config/") 
+ 
+-		if pathName == "":
+-			f = open("tintwizard.conf", "w")
+-		else:
+-			f = open(pathName+"/tintwizard.conf", "w")
++		f = open(pathName + "tintwizard.conf", "w")
+ 
+ 		f.write(confStr)
+ 
