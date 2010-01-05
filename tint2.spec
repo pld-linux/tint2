@@ -13,6 +13,7 @@ Source0:	http://tint2.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	866bc529cb7d0884e976f8fc9aef0eea
 Source1:	http://tint2.googlecode.com/files/%{name}-0.7.pdf
 # Source1-md5:	25980bd22fabc6a66660173fa639957b
+Patch0:		%{name}-tintwizard_conf.patch
 URL:		http://code.google.com/p/tint2/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -55,6 +56,7 @@ tint2 - przykładowe konfiguracje.
 
 %prep
 %setup -q 
+%patch0 -p1
 
 %build
 %{__libtoolize}
