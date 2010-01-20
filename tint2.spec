@@ -27,6 +27,8 @@ BuildRequires:	libtool
 BuildRequires:	pango-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
+BuildRequires:	xorg-lib-libXcomposite-devel
+BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 %if %{with tintwizard}
 Requires:	python
