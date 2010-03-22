@@ -2,17 +2,15 @@
 # Conditional build:
 %bcond_without  tintwizard	# build without tintwizard
 #
-%define		_rc	rc1
-%define		_rel	0.1
 Summary:	tint2 is a simple panel/taskbar intentionally made for openbox3
 Summary(pl.UTF-8):	tint2 jest prostym panelem oryginalnie zaprojektowanym dla openbox3
 Name:		tint2
 Version:	0.9
-Release:	%{_rc}.%{_rel}
+Release:	1
 License:	GPL v2
 Group:		Applications
-Source0:	http://tint2.googlecode.com/files/%{name}-%{version}-%{_rc}.tar.gz
-# Source0-md5:	3e0bae87ea34b43819fc2fbbea3a9da2
+Source0:	http://tint2.googlecode.com/files/%{name}-%{version}.tar.gz
+# Source0-md5:	411de6ccb8b82089852d8c854b12ddb9
 Source1:	http://tint2.googlecode.com/files/%{name}-0.7.pdf
 # Source1-md5:	25980bd22fabc6a66660173fa639957b
 Patch0:		%{name}-tintwizard_conf.patch
@@ -60,7 +58,7 @@ tint2 - example configurations.
 tint2 - przykładowe konfiguracje.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_rc}
+%setup -q -n %{name}-%{version}
 %patch0 -p1
 
 %build
