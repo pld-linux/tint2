@@ -1,0 +1,8 @@
+- up to 0.11
+- it now uses cmake build, BR: cmake
+- drop auto-hell
+- BR: desktop-file-utils
+- mo' files!
+- back to .1 rel. for testing purposes
+- patch obsoleted, config file now resides under ~/.config/tint2
+  directory
