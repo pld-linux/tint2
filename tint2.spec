@@ -6,7 +6,7 @@ Summary:	tint2 is a simple panel/taskbar intentionally made for openbox3
 Summary(pl.UTF-8):	tint2 jest prostym panelem oryginalnie zaprojektowanym dla openbox3
 Name:		tint2
 Version:	0.11
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	http://tint2.googlecode.com/files/%{name}-%{version}.tar.bz2
