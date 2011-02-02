@@ -18,6 +18,7 @@ BuildRequires:	cairo-devel
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2-devel
+BuildRequires:	gtk+2-devel
 BuildRequires:	imlib2-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtool
@@ -27,6 +28,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	xorg-lib-libXcomposite-devel
 BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXinerama-devel
+BuildRequires:	xorg-lib-libXrandr-devel
 %if %{with tintwizard}
 Requires:	python
 Requires:	python-pygtk-gtk
@@ -57,17 +59,16 @@ tint2 - example configurations.
 tint2 - przykładowe konfiguracje.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 mkdir build
 
 %build
 cd build
 %cmake \
+	-DCMAKE_CXX_COMPILER_WORKS=1 -DCMAKE_CXX_COMPILER="%{__cc}" \
 	-DCMAKE_INSTALL_PREFIX=%{_usr} \
 	..
-%{__make} \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} %{rpmldflags}"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
